@@ -66,7 +66,12 @@ const SalesChart: React.FC = () => {
     },
   };
 
-  return <Line key={JSON.stringify(chartData)} data={chartData} options={options} />;
+  return (
+    <div>
+      <h2 style={{textAlign: 'left', padding: '20px', fontSize: '20px'}}>Retail Sales</h2>
+      <Line key={JSON.stringify(chartData)} data={chartData} options={options} />;
+    </div>
+  );
 };
 
 export default SalesChart;

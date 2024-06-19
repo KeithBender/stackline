@@ -39,6 +39,7 @@ th, td {
 
 td {
   text-align: center; 
+  color: grey;
 }
 
 td::after {
