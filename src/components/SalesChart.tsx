@@ -69,7 +69,7 @@ const SalesChart: React.FC = () => {
   return (
     <div>
       <h2 style={{textAlign: 'left', padding: '20px', fontSize: '20px'}}>Retail Sales</h2>
-      <Line key={JSON.stringify(chartData)} data={chartData} options={options} />;
+      <Line key={JSON.stringify(chartData)} data={chartData} options={options} />
     </div>
   );
 };
