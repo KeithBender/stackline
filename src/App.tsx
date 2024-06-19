@@ -6,6 +6,8 @@ import SalesChart from './components/SalesChart';
 import SalesTable from './components/SalesTable';
 import Sidebar from './components/Sidebar';
 import './App.css';
+import logo from './stackline_logo.svg';
+
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <div className="header-content">
-          <img src="/stackline_logo.svg" alt="Stackline Logo" className="logo" />
+          <img src={logo} alt="Stackline Logo" className="logo" />
         </div>
       </header>
       <div className="App-content">
