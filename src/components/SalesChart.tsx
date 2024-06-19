@@ -44,7 +44,6 @@ const SalesChart: React.FC = () => {
       x: {
         title: {
           display: true,
-          text: 'Month',
         },
         grid: {
           display: false,
