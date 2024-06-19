@@ -1,24 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { setData } from './store/salesSlice';
+import SalesChart from './components/SalesChart';
+import SalesTable from './components/SalesTable';
+import Sidebar from './components/Sidebar';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  const dispatch = useDispatch();
+  const [product, setProduct] = useState<any>(null);
+
+  useEffect(() => {
+    axios.get(`${process.env.PUBLIC_URL}/stackline_frontend_assessment_data_2021.json`)
+      .then(response => {
+        console.log("Data fetched:", response.data);
+        dispatch(setData(response.data[0].sales));
+        setProduct(response.data[0]);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, [dispatch]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="header-content">
+          <img src="/stackline_logo.svg" alt="Stackline Logo" className="logo" />
+        </div>
       </header>
+      <div className="App-content">
+        <div className='Sidebar'>
+        {product && <Sidebar product={product} />}
+        </div>
+        <main>
+          <div className="chart-container">
+            <SalesChart />
+          </div>
+          <div className="table-container">
+            <SalesTable />
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
