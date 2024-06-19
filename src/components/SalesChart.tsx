@@ -17,7 +17,7 @@ const SalesChart: React.FC = () => {
       {
         label: 'Retail Sales',
         data: monthlyData.map(data => data.retailSales),
-        borderColor: 'blue',
+        borderColor: '#3EA4F5',
         fill: false,
         pointRadius: 0,
         tension: 0.4,
@@ -25,7 +25,7 @@ const SalesChart: React.FC = () => {
       {
         label: 'Wholesale Sales',
         data: monthlyData.map(data => data.wholesaleSales),
-        borderColor: 'gray',
+        borderColor: '#98A2BC',
         fill: false,
         pointRadius: 0,
         tension: 0.4,
@@ -68,7 +68,7 @@ const SalesChart: React.FC = () => {
 
   return (
     <div>
-      <h2 style={{textAlign: 'left', padding: '20px', fontSize: '20px'}}>Retail Sales</h2>
+      <h2 style={{textAlign: 'left', padding: '20px', fontSize: '20px', color: '#979FA8'}}>Retail Sales</h2>
       <Line key={JSON.stringify(chartData)} data={chartData} options={options} />
     </div>
   );
